@@ -1,0 +1,10 @@
+(async () => {
+     require('dotenv').config()
+     require('module-alias/register')
+     require('./app/configs')
+     require('./memcache')
+     require('./router/index')
+     require('./server/express').start()
+     // require('@socketIo')
+     // require('@socketClient')
+ })()

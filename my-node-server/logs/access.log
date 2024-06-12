@@ -1,0 +1,12 @@
+{"ip":"::1","method":"GET","url":"/","status":"404","res":139,"response":"2.789"}
+{"ip":"::1","method":"GET","url":"//get-all-machine","status":"404","res":155,"response":"1.562"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"0.449"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"2.063"}
+{"ip":"::1","method":"GET","url":"/","status":"404","res":139,"response":"0.628"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"0.378"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"1.896"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"1.086"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"0.290"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"0.331"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"0.337"}
+{"ip":"::1","method":"GET","url":"/get-all-machine","status":"404","res":154,"response":"0.428"}

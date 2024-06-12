@@ -1,21 +1,56 @@
-const mysql = require('mysql2');
-require('dotenv').config();
+const { Sequelize, DataTypes } = require('sequelize')
+const moment = require('moment')
 
-console.log(process.env.DB_HOST);
+const { DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD } = process.env
 
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'db_oee'
-});
+DataTypes.DATE.prototype._stringify = function _stringify(date, options) {
+	date = this._applyTimezone(date, options);
 
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to the database:', err);
-    return;
-  }
-  console.log('Connected to the MySQL database.');
-});
+	return date.format('YYYY-MM-DD HH:mm:ss.SSS');
+}
 
-module.exports = connection;
+function getDateTimeFormat(field) {
+	return moment(this.getDataValue(field)).utcOffset(0).format('YYYY-MM-DD HH:mm:ss').toString()
+}
+
+function getTimeFormat(field) {
+	return moment(this.getDataValue(field)).utcOffset(0).format('HH:mm:ss').toString()
+}
+
+function getDateFormat(field) {
+	return moment(this.getDataValue(field)).format('YYYY-MM-DD').toString()
+}
+
+const Db = new Sequelize(
+	DB_DATABASE,
+	DB_USERNAME,
+	DB_PASSWORD,
+	{
+		host: DB_HOST,
+		port: DB_PORT,
+		dialect: DB_CONNECTION,
+		dialectOptions: {
+			options: {
+				requestTimeout: 300000,
+				encrypt: false,
+				trustServerCertificate: true,
+			},
+		},
+		logging: false,
+		// logging: console.log,
+		timezone: '+07:00',
+		pool: {
+			max: 200,
+			min: 0,
+			acquire: 30000,
+			idle: 10000
+		},
+	}
+)
+
+module.exports = {
+	Db,
+	getDateTimeFormat,
+	getDateFormat,
+	getTimeFormat
+}
