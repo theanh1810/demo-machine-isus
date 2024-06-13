@@ -1,3 +1,9 @@
-.breadcrumb-container{
-     padding: 0 24px 24px;
+.content-container{
+     padding: 20px 24px 24px 20px;
+}
+
+.button-con{
+     flex-direction: row !important;
+     background-color: white;
+     margin-bottom: 10px;
 }

@@ -1,10 +1,10 @@
-import { Layout, theme } from 'antd';
-import Header from '../components/UI/HeaderLayout/Header.jsx';
-import Footer from '../components/UI/Footer/Footer.jsx';
-import Sidebar from '../components/UI/SidebarLayout/Sidebar.jsx';
-import MachineDetail from '../components/Machine/MachineDetail.jsx';
-
-const { Sider } = Layout;
+import { Layout, theme} from "antd";
+import Header from "../components/UI/HeaderLayout/Header.jsx";
+import Footer from "../components/UI/Footer/Footer.jsx";
+import Sidebar from "../components/UI/SidebarLayout/Sidebar.jsx";
+import BreadcrumbLayout from "../components/UI/BreadcrumbLayout/BreadcrumbLayout.jsx";
+import MachineList from "../components/Machine/MachineList.jsx";
+const { Sider, Content } = Layout;
 
 const LayoutApp = () => {
   const {
@@ -14,7 +14,7 @@ const LayoutApp = () => {
   return (
     <Layout>
       <Header />
-      <Layout className='container-layout'>
+      <Layout className="container-layout">
         <Sider
           width={200}
           style={{
@@ -23,11 +23,25 @@ const LayoutApp = () => {
         >
           <Sidebar background={colorBgContainer} />
         </Sider>
-        <Layout >
-          <MachineDetail background={colorBgContainer} borderRadius={borderRadiusLG} />
+        <Layout 
+          style={{
+            padding: 20,
+          }}
+        >
+          <BreadcrumbLayout />
+          <Content
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: "100%",
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            <MachineList />
+          </Content>
         </Layout>
-
-      </Layout>        
+      </Layout>
       <Footer />
     </Layout>
   );

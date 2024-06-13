@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { Db, getDateTimeFormat } = require('./Db')
+const { Db, getDateTimeFormat } = require('./db')
 const { INTEGER } = require('sequelize')
 
 const { STRING, DATE, FLOAT, BOOLEAN } = DataTypes
@@ -8,6 +8,7 @@ const Master_Machine = Db.define('MasterMachine', {
 	id: { type: INTEGER, primaryKey: true, autoIncrement: true },
 	name: { type: STRING },
 	symbols: { type: STRING },
+	image: {type: STRING},
 	max: { type: INTEGER},
 	min: { type: INTEGER},
 	user_created: { type: INTEGER },
@@ -15,6 +16,7 @@ const Master_Machine = Db.define('MasterMachine', {
 	user_updated: { type: INTEGER },
 	time_updated: { type: DATE, get() { return getDateTimeFormat.call(this, 'Time_Updated') } },
 	is_delete: { type: BOOLEAN },
+	is_active: {type: BOOLEAN}
 }, {
 	tableName: 'master_machine',
 	timestamps: true,
