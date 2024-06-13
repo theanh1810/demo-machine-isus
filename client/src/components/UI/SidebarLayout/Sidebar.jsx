@@ -22,7 +22,6 @@ const items = [
   },
 ];
 
-
 const Sidebar = ({background}) => {
   const [selectedKeys, setSelectedKeys] = useState(['0']);
   const handleClick = (e) => {

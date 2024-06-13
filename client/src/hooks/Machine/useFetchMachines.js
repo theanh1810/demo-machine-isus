@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { getAllMachines } from '../../api/Machine/ListMachineApi';
+import { getAllMachinesUser } from '../../api/Machine/GetAllMachineUser';
 
 const useFetchMachines = () => {
     const [machines, setMachines] = useState([]);
@@ -10,7 +10,7 @@ const useFetchMachines = () => {
     const fetchMachines = useCallback(async () => {
         try {
             setLoading(true);
-            const data = await getAllMachines();
+            const data = await getAllMachinesUser();
             setMachines(data);
         } catch (err) {
             setError(err);

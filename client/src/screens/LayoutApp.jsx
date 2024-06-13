@@ -1,12 +1,11 @@
 import { Layout, theme} from "antd";
 import Header from "../components/UI/HeaderLayout/Header.jsx";
 import Footer from "../components/UI/Footer/Footer.jsx";
-import Sidebar from "../components/UI/SidebarLayout/Sidebar.jsx";
 import BreadcrumbLayout from "../components/UI/BreadcrumbLayout/BreadcrumbLayout.jsx";
-import MachineList from "../components/Machine/MachineList.jsx";
+import Sidebar from "../components/UI/SidebarLayout/Sidebar.jsx";
 const { Sider, Content } = Layout;
 
-const LayoutApp = () => {
+const LayoutApp = ({Pages}) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -38,7 +37,7 @@ const LayoutApp = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            <MachineList />
+            {Pages}
           </Content>
         </Layout>
       </Layout>
@@ -46,7 +45,5 @@ const LayoutApp = () => {
     </Layout>
   );
 };
-
-console.log(LayoutApp);
 
 export default LayoutApp;

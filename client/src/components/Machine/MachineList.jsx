@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Table, Tag, Button, Layout, Tooltip, Modal, Flex } from 'antd';
 import { ReloadOutlined, PlusOutlined } from '@ant-design/icons';
 import useFetchMachines from '../../hooks/Machine/useFetchMachines';
@@ -15,25 +15,25 @@ const MachineList = () => {
   const columns = [
     {
       title: 'ID',
-      dataIndex: 'id',
+      dataIndex: 'machine_select_id',
       align: 'center',
       key: 'id',
     },
     {
       title: 'Tên Máy',
-      dataIndex: 'name',
+      dataIndex: 'machine_select_name',
       align: 'center',
       key: 'name',
     },
     {
       title: 'Mã Máy',
-      dataIndex: 'symbols',
+      dataIndex: 'machine_select_symbols',
       align: 'center',
       key: 'symbols',
     },
     {
       title: 'Hình Ảnh',
-      dataIndex: 'image',
+      dataIndex: 'machine_select_image',
       align: 'center',
       key: 'image',
       render: image => <img src={`${image}`} style={{ width: '50px', height: 'auto' }} alt="Hình ảnh" />,
@@ -116,6 +116,7 @@ const MachineList = () => {
         <p>Bạn có chắc chắn muốn xóa máy này?</p>
       </Modal>
     </div>
+    
   );
 };
 
