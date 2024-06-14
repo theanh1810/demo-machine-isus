@@ -1,8 +1,7 @@
-import LayoutApp from "../../screens/LayoutApp";
 
 const Home = () => {
   return (
-     <LayoutApp />
+      <div></div>
   );
 };
 

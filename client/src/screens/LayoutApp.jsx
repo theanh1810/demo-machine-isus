@@ -1,15 +1,19 @@
+import React from "react";
 import { Layout, theme} from "antd";
 import Header from "../components/UI/HeaderLayout/Header.jsx";
 import Footer from "../components/UI/Footer/Footer.jsx";
-import BreadcrumbLayout from "../components/UI/BreadcrumbLayout/BreadcrumbLayout.jsx";
 import Sidebar from "../components/UI/SidebarLayout/Sidebar.jsx";
-const { Sider, Content } = Layout;
+const { Sider } = Layout;
 
 const LayoutApp = ({Pages}) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  const PagesWithProps = React.cloneElement(Pages, {
+    colorBgContainer,
+    borderRadiusLG,
+  });
   return (
     <Layout>
       <Header />
@@ -27,18 +31,7 @@ const LayoutApp = ({Pages}) => {
             padding: 20,
           }}
         >
-          <BreadcrumbLayout />
-          <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: "100%",
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            {Pages}
-          </Content>
+            {PagesWithProps}
         </Layout>
       </Layout>
       <Footer />
